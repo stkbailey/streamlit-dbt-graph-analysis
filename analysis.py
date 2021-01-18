@@ -92,7 +92,7 @@ def read_graph(uploaded_file=None):
     for n, parents in manifest["parent_map"].items():
         for parent in parents:
             G.add_edge(parent, n)
-    
+
     return G
 
 

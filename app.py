@@ -11,12 +11,12 @@ from analysis import (
     extract_node_graph,
     analyze_data_graph,
     create_pydot_viz,
-    get_relations_df
+    get_relations_df,
 )
 
 
 streamlit.set_page_config(page_title="dbt Graph Analysis", layout="centered")
-manifest_file = streamlit.sidebar.file_uploader("Manifest File", type=['.json']) or None
+manifest_file = streamlit.sidebar.file_uploader("Manifest File", type=[".json"]) or None
 
 # Prep work
 G = read_graph(manifest_file)
@@ -72,7 +72,9 @@ selected_node = streamlit.selectbox(
     options=available_nodes,
     index=available_nodes.index(default_selected_node),
 )
-max_node_distance = streamlit.slider(label="Max Relation Distance", min_value=1, max_value=10, value=10)
+max_node_distance = streamlit.slider(
+    label="Max Relation Distance", min_value=1, max_value=10, value=10
+)
 
 # Derivative analysis
 g_node = extract_node_graph(G, selected_node)
